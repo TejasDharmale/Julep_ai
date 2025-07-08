@@ -5,11 +5,25 @@ Julep_ai is a Flask-based web application that provides AI-powered food recommen
 
 ## AI Models Used
 
-### Llama
-- **Why:**  
-  Llama is a state-of-the-art large language model used in this project for understanding user queries, generating natural language responses, and providing context-aware recommendations.
-- **How:**  
-  When a user interacts with the app, Llama helps interpret their intent and refines the recommendation process, making suggestions more relevant and conversational.
+#### Why Llama?
+
+Llama is the core large language model (LLM) that powers our intelligent foodie recommendation engine. It's used to understand user preferences, analyze today's weather, and suggest indoor or outdoor dining options. It also personalizes the experience with city-specific food narratives.
+
+#### How We Use Llama
+
+1. **Weather Analysis**  
+   Llama evaluates the current weather (sunny, rainy, etc.) for a given city and recommends indoor or outdoor dining accordingly.
+
+2. **Dish Selection**  
+   It suggests 3 iconic dishes that represent the local flavor of the selected city.
+
+3. **Restaurant Recommendation**  
+   Using Llama's language understanding, it picks top-rated restaurants serving those dishes, based on external data sources or user prompts.
+
+4. **Foodie Tour Generation**  
+   Finally, Llama creates a one-day "foodie tour" itinerary with rich breakfast, lunch, and dinner descriptions that adapt to weather conditions and city specialties.
+
+This enables a seamless, intelligent, and highly personalized culinary journey for users.
 
 ### DeepSeek
 - **Why:**  

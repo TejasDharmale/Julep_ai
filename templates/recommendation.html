@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>{{ weather.city }} Foodie Tour – AI Planner</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <div class="container">
+    <section class="weather-card">
+      <h2>🌤️ Weather in <span id="city">{{ weather.city }}</span></h2>
+      <p class="description">{{ weather.description|capitalize }}</p>
+      <div class="temperature">{{ weather.temperature }}°C – 
+        {% if is_outdoor %}
+          Perfect for outdoor dining
+        {% else %}
+          Indoor dining recommended
+        {% endif %}
+      </div>
+    </section>
+
+    <section class="foodie-card">
+      <h2>🍴 {{ weather.city }} Foodie Tour</h2>
+      <p class="quote">“A journey through {{ weather.city }}'s flavors, one meal at a time.”</p>
+
+      <h3>🏆 Iconic Local Dishes</h3>
+      <div class="badges">
+        {% for dish in recommendations.dishes %}
+          <span class="badge" data-dish="{{ dish }}">{{ dish }}</span>
+        {% endfor %}
+      </div>
+
+      {% if try_at_home %}
+        <div class="try-at-home">
+          <h3>🏠 Try at Home</h3>
+          <p>Indoor dining is recommended today. Why not try making <strong>{{ try_at_home }}</strong> at home? 🍳</p>
+        </div>
+      {% else %}
+        <h3>🕰️ Your Day's Culinary Timeline</h3>
+        <div class="timeline">
+          {% for meal in recommendations.timeline %}
+          <div class="timeline-entry">
+            <h4>{{ meal.icon }} {{ meal.name }} – {{ meal.time }}</h4>
+            <p><strong>{{ meal.restaurant }}</strong> — {{ meal.type }} — <strong>{{ meal.rating }} ⭐</strong></p>
+            <p>Special Dish: {{ meal.special }}</p>
+            <p>📍 Address: {{ meal.address }}</p>
+            <p class="note">{{ meal.note }}</p>
+            {# Google Reviews Section #}
+            {% set rest = None %}
+            {% for r in recommendations.restaurants %}
+              {% if r.name == meal.restaurant %}
+                {% set rest = r %}
+              {% endif %}
+            {% endfor %}
+            {% if rest and rest.google_reviews %}
+              <div class="google-reviews">
+                <h5>Google Reviews:</h5>
+                <ul>
+                  {% for review in rest.google_reviews %}
+                    <li>
+                      <strong>{{ review.author_name }}</strong> ({{ review.rating }}⭐):<br>
+                      <em>"{{ review.text }}"</em>
+                      <span style="color: #888; font-size: 0.9em;">{{ review.relative_time_description }}</span>
+                    </li>
+                  {% endfor %}
+                </ul>
+              </div>
+            {% endif %}
+          </div>
+          {% endfor %}
+        </div>
+        <div style="text-align:center; margin-top: 2rem;">
+          <button onclick="alert('This feature will be enabled in live version!')" class="badge-outline" style="padding: 12px 24px;">
+            ⭐ View AI-Powered Reviews
+          </button>
+        </div>
+      {% endif %}
+    </section>
+  </div>
+</body>
+</html>

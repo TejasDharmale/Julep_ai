@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Add a New City</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <div class="container">
+    <h2>Add a New City</h2>
+    <form method="POST">
+      <input type="hidden" name="add_city" value="1" />
+      <label>City Name:</label>
+      <input type="text" name="display" value="{{ user_input or city }}" required />
+      <label>Country/State:</label>
+      <input type="text" name="country" required />
+      <label>Three Iconic Dishes (comma-separated):</label>
+      <input type="text" name="cuisine" placeholder="e.g. Misal Pav, Vada Pav, Puran Poli" required />
+      <h4>Recommended Restaurants</h4>
+      {% for i in range(1, 4) %}
+        <div style="margin-bottom: 1em;">
+          <label>Restaurant {{ i }} Name:</label>
+          <input type="text" name="restaurant_name_{{i}}" required />
+          <label>Type:</label>
+          <input type="text" name="restaurant_type_{{i}}" placeholder="e.g. Maharashtrian, Street Food" required />
+          <label><input type="checkbox" name="restaurant_outdoor_{{i}}" /> Outdoor Seating?</label>
+        </div>
+      {% endfor %}
+      <button type="submit">Save City</button>
+    </form>
+    <p style="margin-top:1em;"><a href="{{ url_for('index') }}">← Back to Search</a></p>
+  </div>
+</body>
+</html> 

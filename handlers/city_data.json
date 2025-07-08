@@ -1,0 +1,56 @@
+{
+  "new york": {
+    "country": "USA",
+    "display": "New York",
+    "cuisine": ["Pizza", "Bagels", "Cheesecake"],
+    "restaurants": [
+      {"name": "Katz's Deli", "type": "Deli", "outdoor": true},
+      {"name": "Joe's Pizza", "type": "Pizza", "outdoor": false}
+    ]
+  },
+  "mumbai": {
+    "country": "India",
+    "display": "Mumbai",
+    "cuisine": ["Vada Pav", "Pav Bhaji"],
+    "restaurants": [
+      {"name": "Leopold Cafe", "type": "Cafe", "outdoor": true},
+      {"name": "Bademiya", "type": "Street Food", "outdoor": false}
+    ]
+  },
+  "paris": {
+    "country": "France",
+    "display": "Paris",
+    "cuisine": ["Croissant", "Ratatouille"],
+    "restaurants": [
+      {"name": "Le Jules Verne", "type": "Fine Dining", "outdoor": true},
+      {"name": "Bouillon Pigalle", "type": "Brasserie", "outdoor": false}
+    ]
+  },
+  "boston": {
+    "country": "USA",
+    "display": "Boston",
+    "cuisine": ["Lobster Roll", "Clam Chowder"],
+    "restaurants": [
+      {"name": "Neptune Oyster", "type": "Seafood", "outdoor": true},
+      {"name": "Union Oyster House", "type": "Historic", "outdoor": false}
+    ]
+  },
+  "monaco": {
+    "country": "Monaco",
+    "display": "Monaco",
+    "cuisine": ["Barbajuan", "Bouillabaisse"],
+    "restaurants": [
+      {"name": "Le Louis XV", "type": "Fine Dining", "outdoor": false},
+      {"name": "Café de Paris", "type": "Brasserie", "outdoor": true}
+    ]
+  },
+  "tokyo": {
+    "country": "Japan",
+    "display": "Tokyo",
+    "cuisine": ["Sushi", "Ramen", "Tempura"],
+    "restaurants": [
+      {"name": "Ichiran Ramen", "type": "Ramen", "outdoor": false},
+      {"name": "Tsukiji Market", "type": "Seafood", "outdoor": true}
+    ]
+  }
+}

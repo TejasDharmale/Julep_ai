@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Foodie Tour Planner</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="logo">🍽️ Foodie Odyssey</div>
+      <div class="tagline">Discover the world's best eats, city by city.</div>
+    </header>
+
+    <section class="search-section">
+      <form class="search-form" method="POST" autocomplete="off">
+        <input type="text" name="city" placeholder="Search for a city (e.g., Tokyo, Paris, Mumbai)" required autofocus>
+        <button type="submit"><span class="search-icon">🔍</span> Search</button>
+      </form>
+      {% if error %}
+        <div class="error">{{ error }}</div>
+      {% endif %}
+      <div class="suggestions">
+        <span>Try:</span>
+        <button type="button" onclick="quickSearch('Tokyo')">Tokyo</button>
+        <button type="button" onclick="quickSearch('Paris')">Paris</button>
+        <button type="button" onclick="quickSearch('Mumbai')">Mumbai</button>
+        <button type="button" onclick="quickSearch('New York')">New York</button>
+      </div>
+    </section>
+  </div>
+  <script>
+    function quickSearch(city) {
+      const input = document.querySelector('input[name="city"]');
+      if (input) {
+        input.value = city;
+        input.form.submit();
+      }
+    }
+  </script>
+</body>
+</html>

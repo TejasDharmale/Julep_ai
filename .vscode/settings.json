@@ -1,0 +1,8 @@
+{
+    "python.analysis.extraPaths": [
+        "./handlers"
+    ],
+    "cursorpyright.analysis.extraPaths": [
+        "./handlers"
+    ]
+}
